@@ -13,5 +13,10 @@ public class WolfGoatCabbageProblem extends Problem{
     public WolfGoatCabbageProblem(WolfGoatCabbageBoard initialState, WolfGoatCabbageBoard goal) {
         //need to initialize the following fields:
         //goal, initial State, actionsFunction, resultFunction, goalTest and stepCostFunction
+        this.initialState = initialState;
+        actionsFunction = WolfGoatCabbageFunctionFactory.getActionsFunction();
+        resultFunction = WolfGoatCabbageFunctionFactory.getResultFunction();
+        goalTest = new DefaultGoalTest(goal);
+        stepCostFunction = new DefaultStepCostFunction();
     }
 }

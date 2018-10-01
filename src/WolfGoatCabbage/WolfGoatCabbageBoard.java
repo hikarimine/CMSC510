@@ -41,22 +41,52 @@ public class WolfGoatCabbageBoard {
     //Move Wolf (and boat)
     public void moveW() {
         //Finish writing this method...
+        if (state[0] == 0){
+            state[0] = 1;
+            state[3] = 1;
+        }else{
+            state[0] = 0;
+            state[3] = 0;
+        }        
     }
 
     //Move Goat (and boat)
     public void moveG() {
         //Finish writing this method...
+        if (state[1] == 0){
+            state[1] = 1;
+            state[3] = 1;
+        }else{
+            state[1] = 0;
+            state[3] = 0;
+        }   
     }
 
     //Move Cabbage (and boat)
     public void moveC() {
         //Finish writing this method...
+        if (state[2] == 0){
+            state[2] = 1;
+            state[3] = 1;
+        }else{
+            state[2] = 0;
+            state[3] = 0;
+        }   
     }
 
     //Just move Boat
     public void moveB() {
         //Finish writing this method...
+        if (state[3] == 0){
+            state[3] = 1;
+        }else{
+            state[3] = 0;
+        }   
     }
+    
+    /*private void toggle(int a){
+        state[a] = (state[a] + 1) % 2;
+    }*/
 
 // This implements the logic for whether the Action object is a valid move.
 // This code uses (a+b+c)%3 a lot. Since a,b,c all either 0 or 1,
