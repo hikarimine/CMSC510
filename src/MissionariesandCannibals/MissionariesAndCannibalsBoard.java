@@ -12,18 +12,16 @@ public class MissionariesAndCannibalsBoard {
     private int[] state;
     
     public static Action moveB = new DynamicAction("moveB");
-    public static Action c1Board = new DynamicAction("c1Board");
-    public static Action c2Board = new DynamicAction("c2Board");
-    public static Action c3Board = new DynamicAction("c3Board");
-    public static Action m1Board = new DynamicAction("m1Board");
-    public static Action m2Board = new DynamicAction("m2Board");
-    public static Action m3Board = new DynamicAction("m3Board");
+    public static Action cBoard = new DynamicAction("cBoard");
+    public static Action mBoard = new DynamicAction("mBoard");
+    public static Action cDebark = new DynamicAction("cDebark");
+    public static Action mDebark = new DynamicAction("mDebark");
     
     
 // State rep: [wolf, goat, cabbage, boat] (0=L)
 // Default constructor starts everyone on the left bank.
     public MissionariesAndCannibalsBoard() {
-        state = new int[]{0, 0, 0, 0, 0, 0, 0};
+        state = new int[]{0, 0, 0, 0, 0};
     }
 // Construct a board based on the array representation to copy.
     public MissionariesAndCannibalsBoard(int[] state) {
@@ -48,30 +46,22 @@ public class MissionariesAndCannibalsBoard {
              
     }
 
-    public void c1Board() {
+    public void cBoard() {
         //Finish writing this method...
            
     }
 
-    public void c2Board() {
+    public void mBoard() {
         //Finish writing this method...
           
     }
 
-    public void c3Board() {
+    public void cDebark() {
         //Finish writing this method...
           
     }
     
-    public void m1Board() {
-        
-    }
-    
-    public void m2Board() {
-        
-    }
-    
-    public void m3Board() {
+    public void mDebark() {
         
     }
 
@@ -80,22 +70,7 @@ public class MissionariesAndCannibalsBoard {
 // (a+b+c)%3 = 0 iff a=b=c.
     public boolean isValidMove(Action where) {
 // Check each of the possible 4 actions.
-        if (where.equals(moveW)) {
-            //boat and wolf need to be in same place
-             if(state[0] != state[3]) return false;
-             //if boat, goat and cabbage all on same side, move invalid
-             return (state[1] + state[2] + state[3])%3 != 0;
-        } else if (where.equals(moveG)) {
-            //G,B must be on same side
-            return state[1] == state[3];
-            
-        } else if (where.equals(moveC)) {
-            //C,B must be on same side
-             if(state[2] != state[3]) return false;
-             //if W,G,B on same side, invalid
-             return (state[0] + state[1] + state[3])%3 != 0;
-        }   //Can't move boat if W,G,B together or G,C,B together
-        return ((state[0] + state[1] + state[3])%3) * ((state[1] + state[2] + state[3])%3) != 0; // return boolean result
+        
     }
 
     @Override

@@ -18,9 +18,9 @@ import util.IterativeDeepeningSearchMod;
 public class MissionariesAndCannibalsDemo {
 
 // Construct a board for the starting state
-    static MissionariesAndCannibalsBoard board = new MissionariesAndCannibalsBoard(new int[]{0, 0, 0, 0, 0, 0, 0});
+    static MissionariesAndCannibalsBoard board = new MissionariesAndCannibalsBoard(new int[]{3, 3, 0, 0, 0});
 // Construct board representing goal state
-    static MissionariesAndCannibalsBoard goal = new MissionariesAndCannibalsBoard(new int[]{1, 1, 1, 1, 1, 1, 1});
+    static MissionariesAndCannibalsBoard goal = new MissionariesAndCannibalsBoard(new int[]{0, 0, 3, 3, 1});
     
     public static void main(String[] args) throws Exception {
         Problem problem = new MissionariesAndCannibalsProblem(board, goal);
