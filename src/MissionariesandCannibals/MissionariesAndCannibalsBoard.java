@@ -21,7 +21,7 @@ public class MissionariesAndCannibalsBoard {
 // State rep: [wolf, goat, cabbage, boat] (0=L)
 // Default constructor starts everyone on the left bank.
     public MissionariesAndCannibalsBoard() {
-        state = new int[]{0, 0, 0, 0, 0};
+        state = new int[]{3, 3, 0, 0, 0};
     }
 // Construct a board based on the array representation to copy.
     public MissionariesAndCannibalsBoard(int[] state) {
