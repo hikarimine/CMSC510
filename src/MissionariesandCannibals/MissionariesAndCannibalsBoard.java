@@ -119,7 +119,15 @@ public class MissionariesAndCannibalsBoard {
     }
     
     private boolean isBoatFull(){
-        return (state[0] + state[2] == 1) || (state[1] + state[3] == 1);
+        if (state[0] + state[2] == 1){
+            return true;
+        }else if (state[1] + state[3] == 1){
+            return true;
+        }else if ((state[0] + state[2] == 2) && (state[1] + state[3] == 2)){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     @Override
