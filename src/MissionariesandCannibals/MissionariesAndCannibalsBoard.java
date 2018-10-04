@@ -40,37 +40,86 @@ public class MissionariesAndCannibalsBoard {
 
 // Update the state based on the action.
 // Only  gets called if move is for sure legal
-    //Move Wolf (and boat)
     public void moveB() {
-        //Finish writing this method...
-             
+        if (state[4] == 0){
+            state[4] = 1;
+        }else{
+            state[4] = 0;
+        }             
     }
 
     public void cBoard() {
-        //Finish writing this method...
-           
+        if (state[4] == 0){
+            state[0] --;
+        }else{
+            state[2] --;
+        }           
     }
 
     public void mBoard() {
-        //Finish writing this method...
-          
+        if (state[4] == 0){
+            state[1] --;
+        }else{
+            state[3] --;
+        }          
     }
 
     public void cDebark() {
-        //Finish writing this method...
-          
+        if (state[4] == 0){
+            state[0] ++;
+        }else{
+            state[2] ++;
+        }
     }
     
     public void mDebark() {
-        
+        if (state[4] == 0){
+            state[1] ++;
+        }else{
+            state[3] ++;
+        }
     }
 
 // This implements the logic for whether the Action object is a valid move.
 // This code uses (a+b+c)%3 a lot. Since a,b,c all either 0 or 1,
 // (a+b+c)%3 = 0 iff a=b=c.
     public boolean isValidMove(Action where) {
-// Check each of the possible 4 actions.
-        
+        if (where.equals(moveB)){
+            return isBoatEmpty();            
+        }else if (where.equals(cBoard)){
+            return !isBoatFull();
+        }else if (where.equals(mBoard)){
+            if (state[4] == 0){
+                if (state[0] == state[1]){
+                    return false;
+                }else{
+                    return !isBoatFull();
+                }
+            }else{
+                if (state[2] == state[3]){
+                    return false;
+                }else{
+                    return !isBoatFull();
+                }
+            }
+        }else if (where.equals(cDebark)){
+            if (state[4] == 0){
+                return !(state[0] == state[1]);
+            }else{
+                return !(state[2] == state[3]);
+            }
+        }else if (where.equals(mDebark)){
+            return true;
+        }
+        return false; //if the move given isn't one of the five options
+    }
+    
+    private boolean isBoatEmpty(){
+        return (state[0] + state[2] < 3) || (state[1] + state[3] < 3);
+    }
+    
+    private boolean isBoatFull(){
+        return (state[0] + state[2] == 1) || (state[1] + state[3] == 1);
     }
 
     @Override
