@@ -32,7 +32,24 @@ private static class WolfGoatCaggabeActionsFunction implements ActionsFunction {
     
     @Override
     public Set<Action> actions(Object state) {
-        
+         MissionariesAndCannibalsBoard board = (MissionariesAndCannibalsBoard) state;
+        Set<Action> actions = new LinkedHashSet<Action>();
+        if (board.isValidMove(MissionariesAndCannibalsBoard.cBoard)){
+            actions.add(MissionariesAndCannibalsBoard.cBoard);
+        }
+        if (board.isValidMove(MissionariesAndCannibalsBoard.cDebark)){
+            actions.add(MissionariesAndCannibalsBoard.cDebark);
+        }
+        if (board.isValidMove(MissionariesAndCannibalsBoard.mBoard)){
+            actions.add(MissionariesAndCannibalsBoard.mBoard);
+        }
+        if (board.isValidMove(MissionariesAndCannibalsBoard.mDebark)){
+            actions.add(MissionariesAndCannibalsBoard.mDebark);
+        }
+        if(board.isValidMove(MissionariesAndCannibalsBoard.moveB)){
+            actions.add(MissionariesAndCannibalsBoard.moveB);
+        }
+        return actions;
         //finish writing this method
     }
 }
@@ -42,6 +59,25 @@ private static class WolfGoatCaggabeResultFunction implements ResultFunction {
     
     @Override
     public Object result(Object s, Action a) {
+        MissionariesAndCannibalsBoard board = (MissionariesAndCannibalsBoard) s;
+        MissionariesAndCannibalsBoard newBoard = new MissionariesAndCannibalsBoard(board);
+        if (MissionariesAndCannibalsBoard.cBoard.equals(a)){
+            newBoard.cBoard();
+            return newBoard;
+        }else if (MissionariesAndCannibalsBoard.cDebark.equals(a)){
+            newBoard.cDebark();
+            return newBoard;
+        }else if (MissionariesAndCannibalsBoard.mBoard.equals(a)){
+            newBoard.mBoard();
+            return newBoard;
+        }else if (MissionariesAndCannibalsBoard.mDebark.equals(a)){
+            newBoard.mDebark();
+            return newBoard;
+        }else if(MissionariesAndCannibalsBoard.moveB.equals(a)){
+            newBoard.moveB();
+            return newBoard;
+        }
+        return s; //return current state if unkown action or No Op.
         
         //finish writing this method
     }
