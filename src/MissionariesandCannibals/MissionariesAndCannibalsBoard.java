@@ -151,7 +151,28 @@ public class MissionariesAndCannibalsBoard {
     @Override
     public String toString() {
         String s = "";
-        
+        if(state[0] == 0) s += " ";
+        if(state[0] == 1) s += "C ";
+        if(state[0] == 2) s += "C C ";
+        if(state[0] == 3) s += "C C C ";
+        if(state[1] == 0) s += " ";
+        if(state[1] == 1) s += "M ";
+        if(state[1] == 2) s += "M M ";
+        if(state[1] == 3) s += "M M M ";
+        if (state[4] == 0) {
+            s += "BOAT --RIVER--      ";   
+        } else {
+            s += "      --RIVER-- BOAT ";
+        }
+        if(state[2] == 0) s += " ";
+        if(state[2] == 1) s += "C ";
+        if(state[2] == 2) s += "C C ";
+        if(state[2] == 3) s += "C C C ";
+        if(state[3] == 0) s += " ";
+        if(state[3] == 1) s += "M ";
+        if(state[3] == 2) s += "M M ";
+        if(state[3] == 3) s += "M M M ";
+        //s+=" RIGHT";
         return s;
     }
 }
