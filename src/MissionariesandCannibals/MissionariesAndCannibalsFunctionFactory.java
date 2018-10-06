@@ -76,6 +76,9 @@ private static class MissionariesAndCannibalsResultFunction implements ResultFun
         }else if (MissionariesAndCannibalsBoard.moveCC.equals(a)){
             newBoard.moveCC();
             return newBoard;
+        }else if (MissionariesAndCannibalsBoard.moveMC.equals(a)){
+            newBoard.moveMC();
+            return newBoard;
         }else if(MissionariesAndCannibalsBoard.moveB.equals(a)){
             newBoard.moveB();
             return newBoard;

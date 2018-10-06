@@ -7,6 +7,7 @@ import aima.core.search.framework.SearchForActions;
 import aima.core.search.framework.evalfunc.HeuristicFunction;
 import aima.core.search.framework.problem.Problem;
 import aima.core.search.framework.qsearch.GraphSearch;
+import aima.core.search.framework.qsearch.TreeSearch;
 import aima.core.search.uninformed.BreadthFirstSearch;
 import aima.core.search.uninformed.DepthFirstSearch;
 import aima.core.search.uninformed.DepthLimitedSearch;
@@ -26,12 +27,12 @@ public class MissionariesAndCannibalsDemo {
         Problem problem = new MissionariesAndCannibalsProblem(board, goal);
         Printer p = new Printer(problem, true);
         
-        //SearchForActions search = new BreadthFirstSearch(new GraphSearch());
-        //SearchForActions search = new BreadthFirstSearch(new TreeSearch());
-        //SearchForActions search = new DepthFirstSearch(new GraphSearch());
-        //SearchForActions search = new DepthFirstSearch(new TreeSearch());
-        //SearchForActions search = new DepthFirstSearch(new DepthLimitedSearchMod(20));
-        SearchForActions search = new IterativeDeepeningSearchMod();
+  //     SearchForActions search = new BreadthFirstSearch(new GraphSearch());
+       // SearchForActions search = new BreadthFirstSearch(new TreeSearch());
+       //SearchForActions search = new DepthFirstSearch(new GraphSearch());
+      // SearchForActions search = new DepthFirstSearch(new TreeSearch());
+        SearchForActions search = new DepthFirstSearch(new DepthLimitedSearchMod(20));
+  //      SearchForActions search = new IterativeDeepeningSearchMod();
         
         //necessary to print node expansions
         search.getNodeExpander().addNodeListener(p);
