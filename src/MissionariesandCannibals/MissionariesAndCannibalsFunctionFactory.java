@@ -16,35 +16,38 @@ private static ResultFunction _resultFunction = null;
 
 public static ActionsFunction getActionsFunction() {
     if (null == _actionsFunction) {
-        _actionsFunction = new WolfGoatCaggabeActionsFunction();
+        _actionsFunction = new MissionariesAndCannibalsActionsFunction();
     }
     return _actionsFunction;
 }
 
 public static ResultFunction getResultFunction() {
     if (null == _resultFunction) {
-        _resultFunction = new WolfGoatCaggabeResultFunction();
+        _resultFunction = new MissionariesAndCannibalsResultFunction();
     }
     return _resultFunction;
 }
 // This is called every time a node is expanded to get the relevant actions.
-private static class WolfGoatCaggabeActionsFunction implements ActionsFunction {
+private static class MissionariesAndCannibalsActionsFunction implements ActionsFunction {
     
     @Override
     public Set<Action> actions(Object state) {
          MissionariesAndCannibalsBoard board = (MissionariesAndCannibalsBoard) state;
         Set<Action> actions = new LinkedHashSet<Action>();
-        if (board.isValidMove(MissionariesAndCannibalsBoard.cBoard)){
-            actions.add(MissionariesAndCannibalsBoard.cBoard);
+        if (board.isValidMove(MissionariesAndCannibalsBoard.moveMM)){
+            actions.add(MissionariesAndCannibalsBoard.moveMM);
         }
-        if (board.isValidMove(MissionariesAndCannibalsBoard.cDebark)){
-            actions.add(MissionariesAndCannibalsBoard.cDebark);
+        if (board.isValidMove(MissionariesAndCannibalsBoard.moveCC)){
+            actions.add(MissionariesAndCannibalsBoard.moveCC);
         }
-        if (board.isValidMove(MissionariesAndCannibalsBoard.mBoard)){
-            actions.add(MissionariesAndCannibalsBoard.mBoard);
+        if (board.isValidMove(MissionariesAndCannibalsBoard.moveM)){
+            actions.add(MissionariesAndCannibalsBoard.moveM);
         }
-        if (board.isValidMove(MissionariesAndCannibalsBoard.mDebark)){
-            actions.add(MissionariesAndCannibalsBoard.mDebark);
+        if (board.isValidMove(MissionariesAndCannibalsBoard.moveC)){
+            actions.add(MissionariesAndCannibalsBoard.moveC);
+        }
+        if (board.isValidMove(MissionariesAndCannibalsBoard.moveMC)){
+            actions.add(MissionariesAndCannibalsBoard.moveMC);
         }
         if(board.isValidMove(MissionariesAndCannibalsBoard.moveB)){
             actions.add(MissionariesAndCannibalsBoard.moveB);
@@ -55,23 +58,23 @@ private static class WolfGoatCaggabeActionsFunction implements ActionsFunction {
 }
 
 // Return a single result based on which action a is applied to the state s.
-private static class WolfGoatCaggabeResultFunction implements ResultFunction {
+private static class MissionariesAndCannibalsResultFunction implements ResultFunction {
     
     @Override
     public Object result(Object s, Action a) {
         MissionariesAndCannibalsBoard board = (MissionariesAndCannibalsBoard) s;
         MissionariesAndCannibalsBoard newBoard = new MissionariesAndCannibalsBoard(board);
-        if (MissionariesAndCannibalsBoard.cBoard.equals(a)){
-            newBoard.cBoard();
+        if (MissionariesAndCannibalsBoard.moveM.equals(a)){
+            newBoard.moveM();
             return newBoard;
-        }else if (MissionariesAndCannibalsBoard.cDebark.equals(a)){
-            newBoard.cDebark();
+        }else if (MissionariesAndCannibalsBoard.moveC.equals(a)){
+            newBoard.moveC();
             return newBoard;
-        }else if (MissionariesAndCannibalsBoard.mBoard.equals(a)){
-            newBoard.mBoard();
+        }else if (MissionariesAndCannibalsBoard.moveMM.equals(a)){
+            newBoard.moveMM();
             return newBoard;
-        }else if (MissionariesAndCannibalsBoard.mDebark.equals(a)){
-            newBoard.mDebark();
+        }else if (MissionariesAndCannibalsBoard.moveCC.equals(a)){
+            newBoard.moveCC();
             return newBoard;
         }else if(MissionariesAndCannibalsBoard.moveB.equals(a)){
             newBoard.moveB();
