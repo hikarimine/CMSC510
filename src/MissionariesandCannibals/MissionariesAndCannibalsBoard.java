@@ -111,8 +111,8 @@ public class MissionariesAndCannibalsBoard {
         if (where.equals(moveMM)){ // move MM to another side
             if (state[4] == 0){ //if boat is on the left
                 if (state[1] >= 2){ //are there at least 2 missionaries on left
-                    if (state[1] - 2 >= state[0]){ //will there still be enough missionaries on left
-                        if (state[3] + 2 >= state[2]){ //will there be enough missionaires on right REMOVE
+                    if ((state[1] - 2 == 0) || (state[1] - 2 >= state[0])){ //will there still be enough missionaries on left
+                        if (state[3] + 2 >= state[2]){ //will there be enough missionaires on right
                             return true;
                         }else{
                             return false;
@@ -125,8 +125,8 @@ public class MissionariesAndCannibalsBoard {
                 }
             }else{ //boat must be on right
                 if (state[3] >= 2){ //are there at least 2 missionaries on right
-                    if (state[3] - 2 >= state[2]){ //will there still be enough missionaries on right
-                        if (state[1] + 2 >= state[0]){ //will there be enough missionaires on left REMOVE
+                    if ((state[3] - 2 == 0) || (state[3] - 2 >= state[2])){ //will there still be enough missionaries on right
+                        if (state[1] + 2 >= state[0]){ //will there be enough missionaires on left
                             return true;
                         }else{
                             return false;
@@ -142,8 +142,8 @@ public class MissionariesAndCannibalsBoard {
         }else if (where.equals(moveCC)){
             if (state[4] == 0){ //if boat is on left
                 if (state[0] >= 2){ //are there at least 2 cannibals on left
-                    if (state[0] - 2 <= state[1]){ //will there still be less cannibals than missionaries REMOVE
-                        if (state[2] + 2 <= state[3]){ //will there be few enough cannibals on other side
+                    if ((state[0] - 2 == 0) || (state[1] == 0) || (state[0] - 2 <= state[1])){ //will there still be less cannibals than missionaries
+                        if ((state[3] == 0) || (state[2] + 2 <= state[3])){ //will there be few enough cannibals on other side
                             return true;
                         }else{
                             return false;
@@ -156,8 +156,8 @@ public class MissionariesAndCannibalsBoard {
                 }
             }else{ //boat must be on right
                 if (state[2] >= 2){ //are there at least 2 cannibals on right
-                    if (state[2] - 2 <= state[3]){ //will there still be less cannibals than missionaries REMOVE
-                        if (state[0] + 2 <= state[1]){ //will there be few enough cannibals on other side
+                    if ((state[2] - 2 == 0) || (state[3] == 0) || (state[2] - 2 <= state[3])){ //will there still be less cannibals than missionaries
+                        if ((state[1] == 0) || (state[0] + 2 <= state[1])){ //will there be few enough cannibals on other side
                             return true;
                         }else{
                             return false;
@@ -172,7 +172,7 @@ public class MissionariesAndCannibalsBoard {
         }else if (where.equals(moveM)){ // moving M from one side to another
             if (state[4] == 0){ //if boat is on the left
                 if (state[1] >= 1){ //is there at least 1 missionary on left
-                    if (state[1] - 1 >= state[0]){ //will there still be enough missionaries on left
+                    if ((state[1] - 1 == 0) || (state[1] - 1 >= state[0])){ //will there still be enough missionaries on left
                         if (state[3] + 1 >= state[2]){ //will there be enough missionaires on right REMOVE
                             return true;
                         }else{
@@ -186,7 +186,7 @@ public class MissionariesAndCannibalsBoard {
                 }
             }else{ //boat must be on right
                 if (state[3] >= 1){ //is there at least 1 missionary on right
-                    if (state[3] - 1 >= state[2]){ //will there still be enough missionaries on right
+                    if ((state[3] - 1 == 0) || (state[3] - 1 >= state[2])){ //will there still be enough missionaries on right
                         if (state[1] + 1 >= state[0]){ //will there be enough missionaires on left REMOVE
                             return true;
                         }else{
@@ -203,8 +203,8 @@ public class MissionariesAndCannibalsBoard {
         }else if (where.equals(moveC)){ // moving C from one side to another
             if (state[4] == 0){ //if boat is on left
                 if (state[0] >= 1){ //is there at least 1 cannibal on left
-                    if (state[0] - 1 <= state[1]){ //will there still be less cannibals than missionaries REMOVE
-                        if (state[2] + 1 <= state[3]){ //will there be few enough cannibals on other side
+                    if ((state[0] - 1 == 0) || (state[1] == 0) || (state[0] - 1 <= state[1])){ //will there still be less cannibals than missionaries REMOVE
+                        if ((state[3] == 0) || (state[2] + 1 <= state[3])){ //will there be few enough cannibals on other side
                             return true;
                         }else{
                             return false;
@@ -217,8 +217,8 @@ public class MissionariesAndCannibalsBoard {
                 }
             }else{ //boat must be on right
                 if (state[2] >= 1){ //is there at least 1 cannibal on right
-                    if (state[2] - 1 <= state[3]){ //will there still be less cannibals than missionaries REMOVE
-                        if (state[0] + 1 <= state[1]){ //will there be few enough cannibals on other side
+                    if ((state[2] - 1 == 0) || (state[3] == 0) || (state[2] - 1 <= state[3])){ //will there still be less cannibals than missionaries REMOVE
+                        if ((state[1] == 0) || (state[0] + 1 <= state[1])){ //will there be few enough cannibals on other side
                             return true;
                         }else{
                             return false;
@@ -234,7 +234,11 @@ public class MissionariesAndCannibalsBoard {
             if (state[4] == 0){ //if boat is on left
                 if (state[0] >= 1){ //is there at least 1 cannibal on left
                     if (state[1] >= 1){ //is there at least 1 missionary on left
-                        return true;
+                        if (state[2] <= state[3]){ //are there more cannibals than missionaries on other side
+                            return true;
+                        }else{
+                            return false;
+                        }
                     }else{
                         return false;
                     }
@@ -244,7 +248,11 @@ public class MissionariesAndCannibalsBoard {
             }else{ //boat must be on right
                 if (state[2] >= 1){ //is there at least 1 cannibal on right
                     if (state[3] >= 1){ //is there at least 1 missionary on right
-                        return true;
+                        if (state[0] <= state[1]){ //are there more cannibals than missionaries on other side
+                            return true;
+                        }else{
+                            return false;
+                        }
                     }else{
                         return false;
                     }

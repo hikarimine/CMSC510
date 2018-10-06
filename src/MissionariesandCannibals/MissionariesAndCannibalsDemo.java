@@ -31,8 +31,8 @@ public class MissionariesAndCannibalsDemo {
         //SearchForActions search = new BreadthFirstSearch(new TreeSearch());
         //SearchForActions search = new DepthFirstSearch(new GraphSearch());
         //SearchForActions search = new DepthFirstSearch(new TreeSearch());
-        SearchForActions search = new DepthFirstSearch(new DepthLimitedSearchMod(20));
-        //SearchForActions search = new IterativeDeepeningSearchMod();
+        //SearchForActions search = new DepthFirstSearch(new DepthLimitedSearchMod(20));
+        SearchForActions search = new IterativeDeepeningSearchMod();
         
         //necessary to print node expansions
         search.getNodeExpander().addNodeListener(p);
