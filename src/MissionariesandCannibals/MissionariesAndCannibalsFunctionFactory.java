@@ -32,7 +32,7 @@ private static class MissionariesAndCannibalsActionsFunction implements ActionsF
     
     @Override
     public Set<Action> actions(Object state) {
-         MissionariesAndCannibalsBoard board = (MissionariesAndCannibalsBoard) state;
+        MissionariesAndCannibalsBoard board = (MissionariesAndCannibalsBoard) state;
         Set<Action> actions = new LinkedHashSet<Action>();
         if (board.isValidMove(MissionariesAndCannibalsBoard.moveMM)){
             actions.add(MissionariesAndCannibalsBoard.moveMM);
@@ -49,11 +49,7 @@ private static class MissionariesAndCannibalsActionsFunction implements ActionsF
         if (board.isValidMove(MissionariesAndCannibalsBoard.moveMC)){
             actions.add(MissionariesAndCannibalsBoard.moveMC);
         }
-        if(board.isValidMove(MissionariesAndCannibalsBoard.moveB)){
-            actions.add(MissionariesAndCannibalsBoard.moveB);
-        }
         return actions;
-        //finish writing this method
     }
 }
 
@@ -78,9 +74,6 @@ private static class MissionariesAndCannibalsResultFunction implements ResultFun
             return newBoard;
         }else if (MissionariesAndCannibalsBoard.moveMC.equals(a)){
             newBoard.moveMC();
-            return newBoard;
-        }else if(MissionariesAndCannibalsBoard.moveB.equals(a)){
-            newBoard.moveB();
             return newBoard;
         }
         return s; //return current state if unkown action or No Op.

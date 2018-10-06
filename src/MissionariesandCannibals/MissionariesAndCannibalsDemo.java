@@ -27,12 +27,12 @@ public class MissionariesAndCannibalsDemo {
         Problem problem = new MissionariesAndCannibalsProblem(board, goal);
         Printer p = new Printer(problem, true);
         
-  //     SearchForActions search = new BreadthFirstSearch(new GraphSearch());
-       // SearchForActions search = new BreadthFirstSearch(new TreeSearch());
-       //SearchForActions search = new DepthFirstSearch(new GraphSearch());
-      // SearchForActions search = new DepthFirstSearch(new TreeSearch());
+        //SearchForActions search = new BreadthFirstSearch(new GraphSearch());
+        //SearchForActions search = new BreadthFirstSearch(new TreeSearch());
+        //SearchForActions search = new DepthFirstSearch(new GraphSearch());
+        //SearchForActions search = new DepthFirstSearch(new TreeSearch());
         SearchForActions search = new DepthFirstSearch(new DepthLimitedSearchMod(20));
-  //      SearchForActions search = new IterativeDeepeningSearchMod();
+        //SearchForActions search = new IterativeDeepeningSearchMod();
         
         //necessary to print node expansions
         search.getNodeExpander().addNodeListener(p);
