@@ -1,5 +1,3 @@
-//WolfGoatCabbageBoard.java
-
 package MissionariesandCannibals;
 
 import java.util.Arrays;
@@ -259,7 +257,6 @@ public class MissionariesAndCannibalsBoard {
                 }return false;
             }
         }else
-        // todo: add the case for moveB, think about the case when boat can/cannot move, otherwise NO SOLUTION FOUND
             return false;
     }
     @Override

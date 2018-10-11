@@ -1,5 +1,3 @@
-// MissionariesAndCannibalsFunctionFactory.java
-
 package MissionariesandCannibals;
 
 import java.util.LinkedHashSet;

@@ -1,5 +1,3 @@
-//WolfGoatCabbageBidirectionalProblem.java
-
 package MissionariesandCannibals;
 
 import aima.core.search.framework.problem.DefaultGoalTest;
