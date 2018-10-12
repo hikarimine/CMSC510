@@ -29,8 +29,10 @@ public class MissionariesAndCannibalsDemo {
         Printer p = new Printer(problem, true);
         
         MissionariesAndCannibalsHeuristic hf = new MissionariesAndCannibalsHeuristic();
-        SearchForActions search = new AStarSearch(new GraphSearch(), hf);
+        //SearchForActions search = new AStarSearch(new GraphSearch(), hf);
+       // SearchForActions search = new AStarSearch(new TreeSearch(), hf);
         //SearchForActions search = new GreedyBestFirstSearch(new GraphSearch(), hf);
+        SearchForActions search = new GreedyBestFirstSearch(new TreeSearch(), hf);
         
         //SearchForActions search = new BreadthFirstSearch(new GraphSearch());
         //SearchForActions search = new BreadthFirstSearch(new TreeSearch());

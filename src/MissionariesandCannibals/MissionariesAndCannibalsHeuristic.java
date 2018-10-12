@@ -10,6 +10,15 @@ public class MissionariesAndCannibalsHeuristic implements HeuristicFunction {
         int[] s = board.getState();
         //copmute how many Missionaries and Cannibals are on the wrong side of the river
         double retVal = s[0] + s[1];
+        
+        //double retVal = s[1];
+        //double retVal = s[0];
+        
+        //double retVal = 2*s[0] + s[1];
+        
+        //double retVal = s[0]+s[1]-1;
+        //double retVal = 2*s[1]+s[0];
+        //double retVal = (s[1]+s[0])-s[2]-s[3];
         return retVal;
     }
 }

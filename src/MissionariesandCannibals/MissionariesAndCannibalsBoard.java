@@ -16,6 +16,8 @@ public class MissionariesAndCannibalsBoard {
     public static Action moveMC = new DynamicAction("moveMC");
     public static Action moveB = new DynamicAction("moveB");
     
+    public static int cost = 0;
+    
 // State rep: [LeftC,LeftM,RightC,RightM,Boat] 
 // Default constructor starts everyone on the left bank.
     public MissionariesAndCannibalsBoard() {
@@ -50,6 +52,7 @@ public class MissionariesAndCannibalsBoard {
             state[3] = state[3] - 2;
             state[4] = 0;
         }
+        cost = cost + 2;
     }
     
     public void moveCC() {
@@ -62,6 +65,7 @@ public class MissionariesAndCannibalsBoard {
             state[2] = state[2] - 2;
             state[4] = 0;
         }
+        cost = cost + 2;
     }
     
     public void moveMC() { 
@@ -78,6 +82,7 @@ public class MissionariesAndCannibalsBoard {
             state[3] = state[3] - 1;
             state[4] = 0;
         }
+        cost = cost + 2;
     }
     
     public void moveM(){ 
@@ -90,6 +95,7 @@ public class MissionariesAndCannibalsBoard {
             state[3] = state[3] - 1;
             state[4] = 0;
         }
+        cost ++;
     }
     
     public void moveC(){
@@ -102,6 +108,7 @@ public class MissionariesAndCannibalsBoard {
             state[2] = state[2] - 1;
             state[4] = 0;
         }
+        cost ++;
     }
     
 // This implements the logic for whether the Action object is a valid move.
@@ -311,6 +318,7 @@ public class MissionariesAndCannibalsBoard {
         if(state[3] == 2) s += "M M ";
         if(state[3] == 3) s += "M M M ";
         //s+=" RIGHT";
+        s += "STEPCOST: " + cost;
         return s;
     }
 }
