@@ -295,6 +295,33 @@ public class MissionariesAndCannibalsBoard {
     @Override
     public String toString() {
         String s = "";
+        int s1 = state[0];
+        int s2 = state[1];
+        int s3 = state[2];
+        int s4 = state[3];
+        while(s1 > 0){
+            s += "C ";
+            s1--;
+        }
+        while(s2 > 0){
+            s += "M ";
+            s2--;
+        }
+        if (state[4] == 0) {
+            s += "BOAT --RIVER--      ";   
+        } 
+        if(state[4] == 1) {
+            s += "      --RIVER-- BOAT ";
+        }
+        while(s3 > 0){
+            s += "C ";
+            s3--;
+        }
+        while(s4 > 0){
+            s += "M ";
+            s4--;
+        }
+        /*
         if(state[0] == 0) s += " ";
         if(state[0] == 1) s += "C ";
         if(state[0] == 2) s += "C C ";
@@ -317,8 +344,9 @@ public class MissionariesAndCannibalsBoard {
         if(state[3] == 1) s += "M ";
         if(state[3] == 2) s += "M M ";
         if(state[3] == 3) s += "M M M ";
+        */
         //s+=" RIGHT";
-        s += "STEPCOST: " + cost;
+        //s += "STEPCOST: " + cost;
         return s;
     }
 }
