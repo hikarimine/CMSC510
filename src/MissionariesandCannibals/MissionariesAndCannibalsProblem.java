@@ -15,6 +15,6 @@ public class MissionariesAndCannibalsProblem extends Problem{
         actionsFunction = MissionariesAndCannibalsFunctionFactory.getActionsFunction();
         resultFunction = MissionariesAndCannibalsFunctionFactory.getResultFunction();
         goalTest = new DefaultGoalTest(goal);
-        stepCostFunction = new DefaultStepCostFunction();
+        stepCostFunction = new MissionariesAndCannibalsStepCostFunction();
     }
 }
