@@ -1,5 +1,5 @@
-# CMSC510
-Fall 2018, CMSC510
+# CMSC470
+Fall 2018, CMSC470
 
 I worked with my team to implement a problem environment (PE) for use with the aima.core Java library. 
 My team then presented the implementation to the class, as well as live demonstrations to show the results 
